@@ -6,7 +6,6 @@ MANDIR ?= $(PREFIX)/man
 CROSS_COMPILE ?= arm-linux-
 CC = $(CROSS_COMPILE)gcc
 
-CFLAGS += -static
 CFLAGS += -Wall -Wextra -Wfatal-errors
 CFLAGS += -I ../include
 CFLAGS += -fPIC
@@ -15,6 +14,7 @@ CFLAGS += -O2
 LDFLAGS += -L ../src
 LDFLAGS += -pie
 LDFLAGS += -lpthread
+LDFLAGS += -static
 
 VPATH = ../src:../include/tinyalsa
 
