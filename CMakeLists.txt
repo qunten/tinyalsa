@@ -13,6 +13,8 @@ set (SRCS
     "src/pcm.c"
     "src/mixer.c")
 
+set(CMAKE_EXE_LINKER_FLAGS "-static")
+
 add_library("tinyalsa" ${HDRS} ${SRCS})
 target_compile_options("tinyalsa" PRIVATE -Wall -Wextra -Wfatal-errors)
 target_include_directories("tinyalsa" PRIVATE "include")

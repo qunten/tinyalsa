@@ -13,7 +13,8 @@ CFLAGS += -O2
 
 LDFLAGS += -L ../src
 LDFLAGS += -pie
-LDFLAGS += -lpthread
+
+LIBS = -lpthread
 
 VPATH = ../src:../include/tinyalsa
 
