@@ -3,16 +3,18 @@ PREFIX ?= /usr/local
 BINDIR ?= $(PREFIX)/bin
 MANDIR ?= $(PREFIX)/man
 
-CROSS_COMPILE ?=
+CROSS_COMPILE ?= arm-linux-
 CC = $(CROSS_COMPILE)gcc
 
-CFLAGS += -Wall -Wextra -Werror -Wfatal-errors
+CFLAGS += -static
+CFLAGS += -Wall -Wextra -Wfatal-errors
 CFLAGS += -I ../include
 CFLAGS += -fPIC
 CFLAGS += -O2
 
 LDFLAGS += -L ../src
 LDFLAGS += -pie
+LDFLAGS += -lpthread
 
 VPATH = ../src:../include/tinyalsa
 

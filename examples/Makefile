@@ -1,7 +1,7 @@
-CROSS_COMPILE ?=
+CROSS_COMPILE ?= arm-linux-
 
 CC = $(CROSS_COMPILE)gcc
-CFLAGS = -Wall -Wextra -Werror -Wfatal-errors -I ../include
+CFLAGS = -Wall -Wextra -Wfatal-errors -I ../include
 
 VPATH = ../src
 

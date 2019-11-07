@@ -6,11 +6,13 @@ ifdef DEB_HOST_MULTIARCH
 LIBDIR := $(LIBDIR)/$(DEB_HOST_MULTIARCH)
 endif
 
+CROSS_COMPILE ?= arm-linux-
+
 CC = $(CROSS_COMPILE)gcc
 AR = $(CROSS_COMPILE)ar
 LD = $(CROSS_COMPILE)gcc
 
-WARNINGS = -Wall -Wextra -Werror -Wfatal-errors
+WARNINGS = -Wall -Wextra -Wfatal-errors
 INCLUDE_DIRS = -I ../include
 override CFLAGS := $(WARNINGS) $(INCLUDE_DIRS) -fPIC $(CFLAGS)
 

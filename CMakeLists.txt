@@ -14,7 +14,7 @@ set (SRCS
     "src/mixer.c")
 
 add_library("tinyalsa" ${HDRS} ${SRCS})
-target_compile_options("tinyalsa" PRIVATE -Wall -Wextra -Werror -Wfatal-errors)
+target_compile_options("tinyalsa" PRIVATE -Wall -Wextra -Wfatal-errors)
 target_include_directories("tinyalsa" PRIVATE "include")
 
 macro(ADD_EXAMPLE EXAMPLE)
@@ -26,10 +26,14 @@ endmacro(ADD_EXAMPLE EXAMPLE)
 add_example("pcm-readi" "examples/pcm-readi.c")
 add_example("pcm-writei" "examples/pcm-writei.c")
 
+find_package(Threads)
+target_link_libraries (${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT})
+
+
 macro(ADD_UTIL UTIL)
     add_executable(${UTIL} ${ARGN})
     target_link_libraries(${UTIL} "tinyalsa")
-    target_compile_options(${UTIL} PRIVATE -Wall -Wextra -Werror -Wfatal-errors)
+    target_compile_options(${UTIL} PRIVATE -Wall -Wextra -Wfatal-errors)
     target_include_directories(${UTIL} PRIVATE "include")
 endmacro(ADD_UTIL UTIL)
 
